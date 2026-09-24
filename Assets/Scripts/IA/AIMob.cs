@@ -128,11 +128,15 @@ public class AIMob : MonoBehaviour
             Vector3 lookPos = player.position;
             lookPos.y = transform.position.y;
             transform.LookAt(lookPos);
+            // Corrección de 180 grados porque el modelo 3D del duende está de espaldas
+            transform.Rotate(0, 180, 0);
         }
         else if (horizontalVelocity.sqrMagnitude > 0.1f)
         {
             // Rotación suave estándar cuando está deambulando
-            Quaternion lookRotation = Quaternion.LookRotation(horizontalVelocity);
+            Quaternion baseRotation = Quaternion.LookRotation(horizontalVelocity);
+            // Añadimos 180 grados al final para corregir el modelo
+            Quaternion lookRotation = baseRotation * Quaternion.Euler(0, 180, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
 
