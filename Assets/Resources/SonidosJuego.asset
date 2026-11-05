@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471f3083c1ec5964081bdf3d5fa053c5, type: 3}
+  m_Name: SonidosJuego
+  m_EditorClassIdentifier: 
+  fondo:
+    clips: []
+    volume: 0.4
+    pitchRange: {x: 1, y: 1}
+    spatialBlend: 0
+    minDistance: 5
+    maxDistance: 80
+    ignoreListenerPause: 0
+  fondosPorPlaneta:
+  - escena: Mercury
+    sonido:
+      clips:
+      - {fileID: 8300000, guid: b8088d75e5f67421fa4a9406c679ef2e, type: 3}
+      - {fileID: 8300000, guid: 06f81b1779325a850b894e577d427b36, type: 3}
+      volume: 0.4
+      pitchRange: {x: 1, y: 1}
+      spatialBlend: 0
+      minDistance: 5
+      maxDistance: 80
+      ignoreListenerPause: 0
+  pasosEnemigo:
+    clips:
+    - {fileID: 8300000, guid: 2cb9609fcb4e7045d82e4893afc0a16d, type: 3}
+    volume: 0.6
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 1
+    minDistance: 3
+    maxDistance: 40
+    ignoreListenerPause: 0
+  disparoMortero:
+    clips:
+    - {fileID: 8300000, guid: f662db4fb4be1efdb8200248a6c6a9d9, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 120
+    ignoreListenerPause: 0
+  movimientoMortero:
+    clips:
+    - {fileID: 8300000, guid: e4d608e929c584fe39a7a3ebf1061746, type: 3}
+    volume: 0.7
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 1
+    minDistance: 6
+    maxDistance: 60
+    ignoreListenerPause: 0
+  impactoMortero:
+    clips:
+    - {fileID: 8300000, guid: d38744a913fa36b96af7ddbde887d375, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 1
+    minDistance: 12
+    maxDistance: 140
+    ignoreListenerPause: 0
+  dronPatrulla:
+    clips:
+    - {fileID: 8300000, guid: 8efa9008117b2605c85d4d4d0ca036a9, type: 3}
+    volume: 0.5
+    pitchRange: {x: 1, y: 1}
+    spatialBlend: 1
+    minDistance: 4
+    maxDistance: 45
+    ignoreListenerPause: 0
+  dronDetecta:
+    clips:
+    - {fileID: 8300000, guid: 658da9b771c17939498cedda87d18495, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 90
+    ignoreListenerPause: 0
+  impactoJugador:
+    clips:
+    - {fileID: 8300000, guid: d38744a913fa36b96af7ddbde887d375, type: 3}
+    volume: 1
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 120
+    ignoreListenerPause: 0
+  pasosJugador:
+    clips:
+    - {fileID: 8300000, guid: 0754f0b19a0664076a27ece699ed5b86, type: 3}
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatialBlend: 0
+    minDistance: 5
+    maxDistance: 80
+    ignoreListenerPause: 0
+  velocidadReferenciaPasosJugador: 8
+  disparoJugador:
+    clips:
+    - {fileID: 8300000, guid: f662db4fb4be1efdb8200248a6c6a9d9, type: 3}
+    volume: 0.9
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 0.3
+    minDistance: 10
+    maxDistance: 100
+    ignoreListenerPause: 0
+  versionAsignacion: 2

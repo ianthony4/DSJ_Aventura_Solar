@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96a847324943a8208308ce3e9f0d933, type: 3}
+  m_Name: Perfil_Venus
+  m_EditorClassIdentifier: 
+  planeta: Venus
+  notasDeDiseno: "Atm\xF3sfera densa: el viento curva visiblemente las par\xE1bolas.
+    Hay que leer el anillo, no la direcci\xF3n del ca\xF1\xF3n."
+  useWorldGravity: 0
+  gravity: 8.9
+  shellHorizontalSpeed: 13
+  maxLaunchSpeed: 38
+  minFlightTime: 1.2
+  maxFlightTime: 8
+  wind: {x: 1.8, y: 0, z: 0.9}
+  blastRadiusMultiplier: 1
+  damageMultiplier: 1
+  engageMinRange: 18
+  engageMaxRange: 42
+  lockOnTime: 1.3
+  salvoSize: 3
+  shotInterval: 1
+  salvoCooldown: 4
+  leadAccuracy: 0.8
+  aimScatter: 2.5

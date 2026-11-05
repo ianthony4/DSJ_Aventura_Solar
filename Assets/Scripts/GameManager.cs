@@ -1,15 +1,20 @@
 ﻿using TMPro; // Necesario para los textos
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement; // Por si queremos reiniciar
 
 public class GameManager : MonoBehaviour
 {
     // --- CONFIGURACIÓN ---
     [Header("Configuración del Nivel")]
-    public float tiempoLimite = 480f; // 3 minutos en segundos
+    public float tiempoLimite = 480f; // 8 minutos en segundos
     public int monedasParaGanar = 7;
     public int monedasTotalesEnMapa = 10;
     public string nombreEscenaMenu = "MainMenu"; // Nombre de la escena del menú principal
+
+    [Header("Puntaje")]
+    public int puntosPorMoneda = 100;
+    public int puntosPorSegundo = 10;
 
     // --- REFERENCIAS UI ---
     [Header("Interfaz (Arrastra los textos aquí)")]
@@ -31,6 +36,11 @@ public class GameManager : MonoBehaviour
     // Singleton: Para poder llamar a este script desde la moneda o la nave fácilmente
     public static GameManager instancia;
 
+    // Lectura para otros sistemas (la IA usa esto para saber si el jugador ya va hacia la nave)
+    public int MonedasActuales { get { return monedasActuales; } }
+    public int MonedasParaGanar { get { return monedasParaGanar; } }
+    public bool JuegoTerminado { get { return juegoTerminado; } }
+
     void Awake()
     {
         // Esto asegura que solo haya un GameManager y sea accesible desde todos lados
@@ -49,8 +59,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // 1. DETECTAR TECLA ESCAPE (PAUSA)
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // 1. DETECTAR TECLA ESCAPE (PAUSA). Si existe un PauseMenuManager (nuevo menú, Input System), él se encarga de ESC.
+        if (PauseMenuManager.Instance == null && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             AlternarPausa();
         }
@@ -150,21 +160,29 @@ public class GameManager : MonoBehaviour
     void Victoria()
     {
         TerminarJuego(true);
-        int bonificaciónMoneda = 50;
-        int puntaje = Mathf.RoundToInt(monedasActuales * bonificaciónMoneda * tiempoRestante);
+        // Puntaje = puntos por moneda + puntos por cada segundo de oxígeno sobrante
+        int puntaje = monedasActuales * puntosPorMoneda + Mathf.FloorToInt(tiempoRestante) * puntosPorSegundo;
         textoPuntajeFinal.text = "Puntaje: " + puntaje;
+    }
+
+    private string motivoDerrota = "se acabó el tiempo";
+
+    // Igual que GameOver(), pero indica por qué se perdió (aparece en la Console).
+    public void GameOver(string motivo)
+    {
+        if (juegoTerminado) return;
+        motivoDerrota = motivo;
+        GameOver();
     }
 
     public void GameOver()
     {
         TerminarJuego(false);
-        Debug.Log("Se acabó el oxígeno/tiempo.");
-
+        Debug.Log("Game Over: " + motivoDerrota + ".");
     }
 
     void TerminarJuego(bool gano)
     {
-        juegoTerminado = true;
         juegoTerminado = true;
         Time.timeScale = 0; // Congelar juego
         Cursor.lockState = CursorLockMode.None;
@@ -177,7 +195,7 @@ public class GameManager : MonoBehaviour
         {
             panelPerdiste.SetActive(true);
         }
-        panelOpciones.SetActive(true); // Asegurar que el panel de opciones esté oculto
+        panelOpciones.SetActive(true); // Mostrar los botones (repetir, menú, salir)
     }
 
     // --- ACTUALIZAR PANTALLA ---
@@ -187,11 +205,18 @@ public class GameManager : MonoBehaviour
         textoMonedas.text = "Monedas: " + monedasActuales + " / " + monedasTotalesEnMapa;
     }
 
+    private int segundoMostrado = -1;
+
     void ActualizarTextoTiempo()
     {
+        // El reloj solo cambia una vez por segundo: así no se crea texto nuevo en cada fotograma.
+        int total = Mathf.FloorToInt(tiempoRestante);
+        if (total == segundoMostrado) return;
+        segundoMostrado = total;
+
         // Convierte los segundos (ej: 125) a formato reloj (02:05)
-        int minutos = Mathf.FloorToInt(tiempoRestante / 60);
-        int segundos = Mathf.FloorToInt(tiempoRestante % 60);
+        int minutos = total / 60;
+        int segundos = total % 60;
         textoTiempo.text = string.Format("{0:00}:{1:00}", minutos, segundos);
 
         // Opcional: Ponerlo rojo si queda poco tiempo

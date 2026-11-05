@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96a847324943a8208308ce3e9f0d933, type: 3}
+  m_Name: Perfil_Mercurio
+  m_EditorClassIdentifier: 
+  planeta: Mercurio
+  notasDeDiseno: "Vac\xEDo y gravedad baja: arcos altos y largos, mucho tiempo para
+    reaccionar. El astronauta corre a 10 m/s, por eso el proyectil va a 14. Planeta
+    de aprendizaje: adelanto parcial y dispersi\xF3n alta."
+  useWorldGravity: 1
+  gravity: 3.7
+  shellHorizontalSpeed: 14
+  maxLaunchSpeed: 30
+  minFlightTime: 1.2
+  maxFlightTime: 6
+  wind: {x: 0, y: 0, z: 0}
+  blastRadiusMultiplier: 1
+  damageMultiplier: 1
+  engageMinRange: 18
+  engageMaxRange: 45
+  lockOnTime: 1.5
+  salvoSize: 3
+  shotInterval: 1.2
+  salvoCooldown: 4.5
+  leadAccuracy: 0.6
+  aimScatter: 3

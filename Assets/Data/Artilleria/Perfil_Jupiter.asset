@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96a847324943a8208308ce3e9f0d933, type: 3}
+  m_Name: Perfil_Jupiter
+  m_EditorClassIdentifier: 
+  planeta: "J\xFApiter"
+  notasDeDiseno: "Gravedad enorme: pocos disparos, r\xE1pidos y pesados, con explosi\xF3n
+    grande. Poco aviso, mucho da\xF1o."
+  useWorldGravity: 0
+  gravity: 24.8
+  shellHorizontalSpeed: 22
+  maxLaunchSpeed: 50
+  minFlightTime: 0.9
+  maxFlightTime: 6
+  wind: {x: -1, y: 0, z: 1}
+  blastRadiusMultiplier: 1.5
+  damageMultiplier: 1.6
+  engageMinRange: 22
+  engageMaxRange: 48
+  lockOnTime: 1
+  salvoSize: 2
+  shotInterval: 1.4
+  salvoCooldown: 4.5
+  leadAccuracy: 0.95
+  aimScatter: 1.5
