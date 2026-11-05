@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96a847324943a8208308ce3e9f0d933, type: 3}
+  m_Name: Perfil_Saturno
+  m_EditorClassIdentifier: 
+  planeta: Saturno
+  notasDeDiseno: "Vientos fuertes y andanadas de 4: las par\xE1bolas se curvan mucho
+    y hay que moverse todo el rato."
+  useWorldGravity: 0
+  gravity: 10.4
+  shellHorizontalSpeed: 15
+  maxLaunchSpeed: 40
+  minFlightTime: 1.1
+  maxFlightTime: 8
+  wind: {x: 2.6, y: 0, z: 0}
+  blastRadiusMultiplier: 1
+  damageMultiplier: 1
+  engageMinRange: 18
+  engageMaxRange: 45
+  lockOnTime: 1.1
+  salvoSize: 4
+  shotInterval: 0.9
+  salvoCooldown: 4
+  leadAccuracy: 0.9
+  aimScatter: 2
